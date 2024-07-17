@@ -22,7 +22,7 @@ class Backend(GenericBackend):
         success = True
         self.metrics.start_req(model_request)
         try:
-            response = requests.post(f"http://{self.model_server_addr}/generate_stream", json=model_request, stream=True)
+            response = requests.post(f"http://{self.model_server_addr}/v1/chat/completions", json=model_request, stream=True)
             if response.status_code == 200:
                 for byte_payload in response.iter_lines():
                     yield byte_payload
