@@ -20,7 +20,7 @@ def format_metric_value(metric_str):
         return metric_str
     
 def parse_config(config):
-    config = config.replace('{ ', '{"').replace(':', '":').replace(', ', ', "').replace(' }', '}').replace('Some("', '"').replace('")', '"').replace('Some(', '"').replace(')', '"').replace(': None', ': null')
+    config = config.replace('{ ', '{"').replace(':', '":').replace(', ', ', "').replace(' }', '}').replace('Some("', '"').replace('")', '"').replace('Some(', '"').replace(')', '"').replace(': None', ': null').replace("'", "\"")
     return json.loads(config)
 
 class LogWatch(GenericLogWatch):
